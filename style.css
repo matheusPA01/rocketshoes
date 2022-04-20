@@ -1,0 +1,252 @@
+:root {
+  --button: #FF0000;
+  --main-background:  #C4C4C4;
+  --background: #E5E5E5;
+  --text: #000;
+  --footer: #000;
+  --text-description: #9C9696;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+  background: var(--background);
+
+  font-family: 'Roboto', sans-serif;
+
+  display: grid;
+  grid-template-areas:
+  "header header"
+  "section main"
+  "footer footer";
+
+}
+
+/* Header Style */
+header {
+  grid-area: header;
+
+  padding: 2em 3em;
+  z-index: 2;
+}
+
+
+/* Navbar Style */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; 
+}
+
+ul.navbar {
+  display: flex;
+  justify-content: space-between;
+
+  width: 70%;
+
+  list-style: none;
+}
+
+li.navbar-item {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 1.5em;
+}
+
+li.navbar-item a {
+  text-decoration: none;
+  color: black;
+}
+
+/* hover effect navbar */
+li.navbar-item:after {
+  content: "";
+  width: 0%;
+  height: 1px;
+  display: block;
+  transition: all 0.5s ease;
+}
+
+li.navbar-item:hover::after {
+  width: 100%;
+  height: 1px;
+  background: black;
+}
+
+input.header-search {
+  background: url("assets/icon-search.svg") no-repeat 4px center, white;
+
+  padding: 10px 0;
+
+  text-indent: 2.4em;
+
+  outline: none;
+  border: none;
+}
+
+/* Section Style */
+section {
+  grid-area: section;
+
+  margin: 0 7em;
+}
+
+h1.value-title {
+  font-size: 3em;
+}
+
+p.value-description {
+  margin: 1em 0;
+  
+  color: var(--text-description);
+}
+
+p.value-product-price {
+  font-size: 2.5em;
+
+  font-weight: 700;
+
+  margin: 1em 0;
+}
+
+button.value-buy {
+  padding: 2em 5em;
+
+  background: var(--button);
+
+  color: white;
+  text-transform: uppercase;
+  font-size: 1em;
+  font-weight: 700;
+
+  border: none;
+
+  cursor: pointer;
+
+  overflow: hidden;
+
+  position: relative;
+}
+
+/* Button hover */
+button.value-buy:hover::before {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+button.value-buy:before {
+  content: attr(data-hover);
+
+  position: absolute;
+  left: 0;
+  right: 0;
+  
+  opacity: 0;
+  transform: translate(-100%, 0);
+  transition: all .3s ease-in-out;
+}
+
+button.value-buy:hover div.hover-button {
+  opacity: 0;
+  transform: translate(100%, 0);
+}
+
+div.hover-button {
+  transition: all .3s ease-in-out;
+}
+
+button.value-buy:hover {
+  background: black;
+  transition: all .5s ease-in-out;
+}
+
+/* Main style */
+main {
+  background: var(--main-background);
+
+  grid-area: main;
+  grid-row-start: 1;
+  grid-row-end: 3;
+  z-index: 1;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+img.main-shoes-image {
+  height: 60%;
+  margin-top: 5em;
+}
+
+ul.main-shoes {
+  display: flex;
+  justify-content: space-between;
+
+  width: 100%;
+  list-style: none;
+}
+
+li.main-shoes-items {
+  margin: 0 1em;
+}
+
+li.main-shoes-items:nth-child(2) img{
+  border-bottom: 5px solid red;
+  transform: scale(1.1);
+}
+
+/* Footer Style */
+footer {
+  grid-area: footer;
+
+  display: flex;
+  justify-content: space-between;
+}
+
+ul.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
+  list-style: none;
+
+  width: 40%;
+}
+
+li.footer-item a {
+  text-decoration: none;
+  color: black;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+button.footer {
+  padding: 1em 7em;
+
+  background: var(--footer);
+
+  color: white;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 1em;
+
+  display: flex;
+  align-items: center;
+
+  border: none;
+
+  cursor: pointer;
+}
+
+span.footer-button-icon {
+  margin: 0 0 0 .8em;
+}
